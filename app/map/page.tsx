@@ -8,7 +8,7 @@ export default function Map() {
             Healthcare Map
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Find nearby healthcare providers, pharmacies, and diabetes specialists in your area.
+            Find nearby MARK DELUNA CAILING page.tsx ng map folder healthcare providers, pharmacies, and diabetes specialists in your area.
           </p>
         </div>
 

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white">
@@ -17,24 +19,24 @@ export default function Footer() {
               <h4 className="text-md font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="/" className="text-gray-300 hover:text-white transition-colors">
+                  <Link href="/" className="text-gray-300 hover:text-white transition-colors">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/glucount" className="text-gray-300 hover:text-white transition-colors">
+                  <Link href="/glucount" className="text-gray-300 hover:text-white transition-colors">
                     Glucount
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/map" className="text-gray-300 hover:text-white transition-colors">
+                  <Link href="/map" className="text-gray-300 hover:text-white transition-colors">
                     Map
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/scanner" className="text-gray-300 hover:text-white transition-colors">
+                  <Link href="/scanner" className="text-gray-300 hover:text-white transition-colors">
                     Scanner
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

@@ -1,13 +1,13 @@
 export default function Scanner() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Food Scanner
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Scan food labels and barcodes to get instant nutritional information and carb counts.
           </p>
         </div>
@@ -15,12 +15,12 @@ export default function Scanner() {
         {/* Scanner Interface */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Camera/Scanner Area */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
               Scan Product
             </h2>
-            <div className="h-80 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-6">
-              <div className="text-center text-gray-500 dark:text-gray-400">
+            <div className="h-80 bg-gray-100 rounded-lg flex items-center justify-center mb-6">
+              <div className="text-center text-gray-500">
                 <svg className="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -40,50 +40,50 @@ export default function Scanner() {
           </div>
 
           {/* Manual Entry */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
               Manual Entry
             </h2>
             <form className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Product Name
                 </label>
                 <input
                   type="text"
                   placeholder="Enter product name"
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Barcode (Optional)
                 </label>
                 <input
                   type="text"
                   placeholder="Enter barcode number"
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Serving Size
                   </label>
                   <input
                     type="text"
                     placeholder="e.g., 1 cup"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Carbs (g)
                   </label>
                   <input
                     type="number"
                     placeholder="Enter carbs"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                   />
                 </div>
               </div>
@@ -98,12 +98,12 @@ export default function Scanner() {
         </div>
 
         {/* Recent Scans */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+        <div className="bg-white p-6 rounded-lg shadow-md mb-12">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-6">
             Recent Scans
           </h2>
           <div className="space-y-4">
-            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
+            <div className="text-center text-gray-500 py-8">
               No recent scans.
               <br />
               Start scanning products to see your history here!
@@ -112,8 +112,8 @@ export default function Scanner() {
         </div>
 
         {/* Quick Access Foods */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-6">
             Common Foods
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -127,11 +127,11 @@ export default function Scanner() {
             ].map((food, index) => (
               <div
                 key={index}
-                className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-center hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer transition-colors"
+                className="bg-gray-50 p-4 rounded-lg text-center hover:bg-gray-100 cursor-pointer transition-colors"
               >
                 <div className="text-2xl mb-2">{food.icon}</div>
-                <div className="font-medium text-gray-900 dark:text-white text-sm">{food.name}</div>
-                <div className="text-xs text-gray-600 dark:text-gray-300">{food.carbs} carbs</div>
+                <div className="font-medium text-gray-900 text-sm">{food.name}</div>
+                <div className="text-xs text-gray-600">{food.carbs} carbs</div>
               </div>
             ))}
           </div>

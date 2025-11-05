@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
         if (model.type === 'imageToText') {
           const result = await client.imageToText({
             model: model.name,
-            data: Buffer.from(imageBuffer),
+            data: imageBuffer,
           });
           
           analysisText = result.generated_text || '';

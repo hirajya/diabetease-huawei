@@ -18,6 +18,7 @@ export default function Scanner() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isCameraActive, setIsCameraActive] = useState(false);
   const [cameraError, setCameraError] = useState<string | null>(null);
+  const [pendingStream, setPendingStream] = useState<MediaStream | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -29,6 +30,16 @@ export default function Scanner() {
     };
   }, []);
 
+  // When camera becomes active, attach the pending stream to the video element
+  useEffect(() => {
+    if (isCameraActive && pendingStream && videoRef.current) {
+      console.log('🎬 useEffect: Attaching stream to video element...');
+      videoRef.current.srcObject = pendingStream;
+      console.log('✅ useEffect: Stream attached successfully');
+      setPendingStream(null);
+    }
+  }, [isCameraActive, pendingStream]);
+
   const startCamera = async () => {
     try {
       console.log('🎥 Starting camera...');
@@ -37,11 +48,7 @@ export default function Scanner() {
       // Stop any existing stream
       stopCamera();
       
-      // First, set camera active to render the video element
-      setIsCameraActive(true);
-      console.log('✅ Camera active state set - video element should render now');
-      
-      // Request camera with more permissive constraints
+      // Request camera FIRST
       const constraints = {
         video: { 
           width: { ideal: 640 },
@@ -54,20 +61,11 @@ export default function Scanner() {
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
       console.log('✅ Stream obtained successfully:', stream);
       
-      // Wait a bit for React to render the video element
-      await new Promise(resolve => setTimeout(resolve, 100));
-      
-      if (!videoRef.current) {
-        console.error('❌ Video ref still not available after render');
-        setIsCameraActive(false);
-        alert('Failed to initialize camera element. Please try again.');
-        return;
-      }
-
-      // Now set the stream to the rendered video element
-      videoRef.current.srcObject = stream;
-      console.log('📹 Stream set to video element');
-      console.log('✅ Camera ready!');
+      // Store the stream and then activate camera (which renders the video element)
+      setPendingStream(stream);
+      console.log('📹 Pending stream stored, activating camera...');
+      setIsCameraActive(true);
+      console.log('✅ Camera active state set');
       
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : String(error);
@@ -87,6 +85,13 @@ export default function Scanner() {
         console.log('Track stopped:', track.kind);
       });
       videoRef.current.srcObject = null;
+    }
+    if (pendingStream) {
+      pendingStream.getTracks().forEach(track => {
+        track.stop();
+        console.log('Pending track stopped:', track.kind);
+      });
+      setPendingStream(null);
     }
     setIsCameraActive(false);
     setCameraError(null);

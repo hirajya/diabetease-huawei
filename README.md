@@ -1,22 +1,17 @@
 # DiabetEase
 
 **Huawei Developer Competition 2025 APAC**
+iabetEase is a full-stack application designed to support individuals managing Type 2 diabetes through intelligent food recommendations, health monitoring, and evidence-based educational content. Built with Next.js and powered by Huawei Cloud services, the platform delivers a scalable, secure, and personalized diabetes management experience.
 
 ## Architecture
-
 View our complete system architecture and integration diagram:
 [DiabetEase Architecture on Figma](https://www.figma.com/board/RMIocSdJmkGsLDIHqcokI3/Diabetease---4-Main-Modules-Huawei-Cloud-Architecture?node-id=0-1&p=f&t=JiniwIf9f8UgWy5t-0)
 
 ## Video Pitch
-
 Watch our competition pitch video:
 [DiabetEase Video Presentation](https://drive.google.com/file/d/1Mu5m8ianYfqgWVoFA3XOTUOdI9yGvbbY/view?usp=sharing)
 
 A comprehensive Type 2 diabetes care companion that empowers patients with AI-driven personalization, health tracking, and educational resources.
-
-## Overview
-
-DiabetEase is a full-stack application designed to support individuals managing Type 2 diabetes through intelligent food recommendations, health monitoring, and evidence-based educational content. Built with Next.js and powered by Huawei Cloud services, the platform delivers a scalable, secure, and personalized diabetes management experience.
 
 ## Key Features
 

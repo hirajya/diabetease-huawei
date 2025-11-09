@@ -332,10 +332,10 @@ export default function Scanner() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-              🤖 Qwen VLM • 🧠 DeepSeek • ⚡ Instant
+               Qwen VLM • DeepSeek •  Instant
             </div>
             <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-              🍽️ Plate Method • 🩺 Diabetic-Friendly
+              Plate Method • Diabetic-Friendly
             </div>
           </div>
         </div>
@@ -421,13 +421,13 @@ export default function Scanner() {
                     onClick={startCamera}
                     className="flex-1 min-w-32 bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-md transition-colors font-medium"
                   >
-                    📷 Start Camera
+                     Start Camera
                   </button>
                   <button 
                     onClick={() => fileInputRef.current?.click()}
                     className="flex-1 min-w-32 bg-gray-600 hover:bg-gray-700 text-white py-3 px-4 rounded-md transition-colors font-medium"
                   >
-                    📁 Upload Photo
+                    Upload Photo
                   </button>
                 </>
               ) : (
@@ -435,7 +435,7 @@ export default function Scanner() {
                   onClick={stopCamera}
                   className="flex-1 bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-md transition-colors font-medium"
                 >
-                  🛑 Stop Camera
+                   Stop Camera
                 </button>
               )}
               {(selectedImage || analysisResult || showMeals) && (
@@ -443,7 +443,7 @@ export default function Scanner() {
                   onClick={clearResults}
                   className="flex-1 min-w-32 bg-yellow-600 hover:bg-yellow-700 text-white py-3 px-4 rounded-md transition-colors font-medium"
                 >
-                  🗑️ Clear All
+                  Clear All
                 </button>
               )}
             </div>
@@ -492,7 +492,7 @@ export default function Scanner() {
                   <>
                     <div>
                       <h3 className="text-lg font-semibold text-green-700 mb-3">
-                        ✅ Ingredients Found ({analysisResult.ingredients.length})
+                        Ingredients Found ({analysisResult.ingredients.length})
                       </h3>
                       <div className="grid grid-cols-1 gap-2">
                         {analysisResult.ingredients.map((ingredient, index) => (
@@ -569,14 +569,14 @@ export default function Scanner() {
                   
                   <div className="space-y-2 mb-4">
                     <div className="text-xs">
-                      <span className="text-green-600 font-medium">🥬 Vegetables:</span> {meal.plateMethod.vegetables.slice(0, 2).join(', ')}
+                      <span className="text-green-600 font-medium">Vegetables:</span> {meal.plateMethod.vegetables.slice(0, 2).join(', ')}
                       {meal.plateMethod.vegetables.length > 2 && '...'}
                     </div>
                     <div className="text-xs">
-                      <span className="text-blue-600 font-medium">🥩 Protein:</span> {meal.plateMethod.protein.slice(0, 2).join(', ')}
+                      <span className="text-blue-600 font-medium">Protein:</span> {meal.plateMethod.protein.slice(0, 2).join(', ')}
                     </div>
                     <div className="text-xs">
-                      <span className="text-orange-600 font-medium">🌾 Carbs:</span> {meal.plateMethod.carbohydrates.slice(0, 2).join(', ')}
+                      <span className="text-orange-600 font-medium">Carbs:</span> {meal.plateMethod.carbohydrates.slice(0, 2).join(', ')}
                     </div>
                   </div>
                   
@@ -587,7 +587,7 @@ export default function Scanner() {
                   </div>
                   
                   <button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors text-sm font-medium">
-                    📋 View Recipe & Nutrition
+                     View Recipe & Nutrition
                   </button>
                 </div>
               ))}
@@ -599,7 +599,7 @@ export default function Scanner() {
                   onClick={() => setShowMoreMeals(!showMoreMeals)}
                   className="bg-gray-600 hover:bg-gray-700 text-white py-3 px-8 rounded-md transition-colors font-medium"
                 >
-                  {showMoreMeals ? '📄 Show Less' : `📄 See More (${mealRecommendations.length - 6} more options)`}
+                  {showMoreMeals ? ' Show Less' : ` See More (${mealRecommendations.length - 6} more options)`}
                 </button>
               </div>
             )}

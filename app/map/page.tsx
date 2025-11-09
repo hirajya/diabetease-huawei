@@ -437,7 +437,7 @@ export default function Map() {
                   onClick={handleSearch}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition-colors"
                 >
-                  🔍 Search
+                  Search
                 </button>
               </div>
             </div>

@@ -41,15 +41,16 @@ export const posts: BlogPost[] = [
     imageCredit: "Photo: Unsplash - @ellaolsson",
     sourceUrl: "https://unsplash.com/photos/1uW6UjS65tg",
   },
+  // New blogs
   {
-    slug: "foot-care-essentials",
-    title: "Foot Care Essentials to Prevent Complications",
+    slug: "traveling-with-diabetes",
+    title: "Traveling with Diabetes: Packing and Planning",
     date: "2025-11-10",
-    excerpt: "Daily checks, proper footwear, and when to see a professional.",
-    content: "Nerve and circulation changes raise foot risk. Check your feet daily for cuts, blisters, redness, or swelling. Wash and dry thoroughly—especially between toes. Moisturize heels (not between toes).\n\nChoose well-fitting shoes with room in the toe box; avoid walking barefoot. Trim nails straight across. If you notice wounds that don't heal, color changes, or numbness, consult your provider or a podiatrist early.",
-    image: "https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=800&auto=format&fit=crop&q=60",
-    imageCredit: "Photo: Unsplash - @the_compare",
-    sourceUrl: "https://unsplash.com/photos/ZVprbBmT8QA",
+    excerpt: "What to pack, time zone tips, and handling airport security.",
+    content: "Use a checklist: meter/CGM supplies, medications, snacks, glucose tabs, prescriptions, and a doctor's note. Pack extras in carry‑on.\n\nCrossing time zones? For insulin, adjust basal timing gradually with guidance. Keep snacks handy for delays, and hydrate more than usual while flying.",
+    image: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=800&auto=format&fit=crop&q=60",
+    imageCredit: "Photo: Unsplash - travel essentials",
+    sourceUrl: "https://unsplash.com/photos/XYrjl3j7smo",
   },
   {
     slug: "stress-and-blood-glucose",

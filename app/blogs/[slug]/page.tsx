@@ -11,6 +11,11 @@ export function generateStaticParams() {
   return posts.map(p => ({ slug: p.slug }));
 }
 
+// Allow any valid slug at runtime (prevent 404 if not prerendered)
+export const dynamicParams = true;
+// Always render fresh (no stale cache interfering with new posts)
+export const revalidate = 0;
+
 export function generateMetadata({ params }: Params) {
   const post = getPost(params.slug);
   if (!post) return { title: "Blog Not Found" };

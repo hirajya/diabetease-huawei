@@ -2,6 +2,16 @@
 
 **Huawei Developer Competition 2025 APAC**
 
+## Architecture
+
+View our complete system architecture and integration diagram:
+[DiabetEase Architecture on Figma](https://www.figma.com/board/RMIocSdJmkGsLDIHqcokI3/Diabetease---4-Main-Modules-Huawei-Cloud-Architecture?node-id=0-1&p=f&t=JiniwIf9f8UgWy5t-0)
+
+## Video Pitch
+
+Watch our competition pitch video:
+[DiabetEase Video Presentation](https://drive.google.com/file/d/1Mu5m8ianYfqgWVoFA3XOTUOdI9yGvbbY/view?usp=sharing)
+
 A comprehensive Type 2 diabetes care companion that empowers patients with AI-driven personalization, health tracking, and educational resources.
 
 ## Overview
@@ -32,16 +42,6 @@ Find nearby diabetic care centers using geolocation-based recommendations to con
 - **GaussDB** - Secure, scalable database for health data management
 - **Cloud Container Engine (CCE)** - Containerized deployment for high availability
 - **Object Storage Service (OBS)** - Efficient storage for images and media assets
-
-## Architecture
-
-View our complete system architecture and integration diagram:
-[DiabetEase Architecture on Figma](https://www.figma.com/board/RMIocSdJmkGsLDIHqcokI3/Diabetease---4-Main-Modules-Huawei-Cloud-Architecture?node-id=0-1&p=f&t=JiniwIf9f8UgWy5t-0)
-
-## Video Pitch
-
-Watch our competition pitch video:
-[DiabetEase Video Presentation](https://drive.google.com/file/d/1Mu5m8ianYfqgWVoFA3XOTUOdI9yGvbbY/view?usp=sharing)
 
 ## Getting Started
 

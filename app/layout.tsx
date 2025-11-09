@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import "leaflet/dist/leaflet.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -26,7 +27,7 @@ export default function RootLayout({
         className={`${poppins.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
         <Navbar />
-        <main className="flex-grow">
+  <main className="grow">
           {children}
         </main>
         <Footer />

@@ -341,7 +341,7 @@ export default function Map() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            🗺️ Healthcare Provider Map
+            Healthcare Provider Map
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Find nearby diabetes specialists, pharmacies, and healthcare services with contact details
@@ -350,7 +350,7 @@ export default function Map() {
 
         {/* Emergency Contact Stations */}
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">🚨 Important Contact Numbers</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">Important Contact Numbers</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {contactStations.map((station) => (
               <div
@@ -510,7 +510,7 @@ export default function Map() {
           <div className="lg:col-span-1">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                📋 Nearby Providers ({filteredProviders.length})
+                Nearby Providers ({filteredProviders.length})
               </h2>
               <div className="space-y-4 max-h-96 overflow-y-auto">
                 {filteredProviders.map((provider) => (

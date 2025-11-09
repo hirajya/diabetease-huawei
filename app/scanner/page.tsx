@@ -156,7 +156,7 @@ export default function Scanner() {
 
   const capturePhoto = async () => {
     try {
-      console.log('📸 Capturing photo...');
+      console.log('Capturing photo...');
       
       if (!videoRef.current || !canvasRef.current) {
         console.error('❌ Video or canvas ref not available');
@@ -325,19 +325,12 @@ export default function Scanner() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            🍽️ Diabetic Meal Planner
+            Diabetic Meal Planner
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-4">
             Scan ingredients with AI, get personalized Type 2 diabetes meal recommendations using the plate method
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-              🤖 Qwen VLM • 🧠 DeepSeek • ⚡ Instant
-            </div>
-            <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-              🍽️ Plate Method • 🩺 Diabetic-Friendly
-            </div>
-          </div>
+        
         </div>
 
         {/* Debug Panel */}
@@ -352,7 +345,7 @@ export default function Scanner() {
           {/* Camera/Scanner Area */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-              📸 Scan Ingredients
+              Scan Ingredients
             </h2>
             
             {!isCameraActive && !selectedImage && (
@@ -421,13 +414,13 @@ export default function Scanner() {
                     onClick={startCamera}
                     className="flex-1 min-w-32 bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-md transition-colors font-medium"
                   >
-                    📷 Start Camera
+                    Start Camera
                   </button>
                   <button 
                     onClick={() => fileInputRef.current?.click()}
                     className="flex-1 min-w-32 bg-gray-600 hover:bg-gray-700 text-white py-3 px-4 rounded-md transition-colors font-medium"
                   >
-                    📁 Upload Photo
+                    Upload Photo
                   </button>
                 </>
               ) : (
@@ -443,7 +436,7 @@ export default function Scanner() {
                   onClick={clearResults}
                   className="flex-1 min-w-32 bg-yellow-600 hover:bg-yellow-700 text-white py-3 px-4 rounded-md transition-colors font-medium"
                 >
-                  🗑️ Clear All
+                  Clear All
                 </button>
               )}
             </div>
@@ -462,7 +455,7 @@ export default function Scanner() {
           {/* Analysis Results */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-              🔍 Ingredients Found
+              Ingredients Found
             </h2>
             
             {!analysisResult && !isAnalyzing && (

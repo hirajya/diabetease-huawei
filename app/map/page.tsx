@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
+import type { Map as LeafletMap } from 'leaflet';
 
 // Dynamically import map components to avoid SSR issues
 const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
@@ -95,24 +96,27 @@ export default function Map() {
   ]);
   const [selectedProvider, setSelectedProvider] = useState<HealthcareProvider | null>(null);
   const [mapCenter, setMapCenter] = useState<[number, number]>([40.7128, -74.0060]); // Default to NYC
-  const [isLoaded, setIsLoaded] = useState(false);
-  const mapRef = useRef<any>(null);
+  const mapRef = useRef<LeafletMap | null>(null);
 
   // Add useEffect to load Leaflet CSS
   useEffect(() => {
-    // Dynamically import Leaflet CSS
-    if (typeof window !== 'undefined') {
-      import('leaflet/dist/leaflet.css');
-      
-      // Fix for default markers
-      const L = require('leaflet');
-      delete L.Icon.Default.prototype._getIconUrl;
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-      });
-    }
+    // Dynamically import Leaflet CSS and configure markers
+    const configureLeaflet = async () => {
+      if (typeof window !== 'undefined') {
+        await import('leaflet/dist/leaflet.css');
+        
+        // Fix for default markers using dynamic import
+        const L = await import('leaflet');
+        delete (L.Icon.Default.prototype as any)._getIconUrl;
+        L.Icon.Default.mergeOptions({
+          iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+          iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+        });
+      }
+    };
+    
+    configureLeaflet();
   }, []);
 
   // Generate sample healthcare providers data
@@ -250,7 +254,6 @@ export default function Map() {
     // Use a timeout to avoid synchronous setState in effect
     const timer = setTimeout(() => {
       setProviders(generateProviders());
-      setIsLoaded(true);
     }, 0);
 
     return () => clearTimeout(timer);
@@ -294,8 +297,16 @@ export default function Map() {
     }
   };
 
-  // Create a safe map component
-  const SafeMapContainer = ({ children, ...props }: any) => {
+  // Create a safe map component with proper typing
+  interface SafeMapContainerProps {
+    children: React.ReactNode;
+    center: [number, number];
+    zoom: number;
+    style: React.CSSProperties;
+    scrollWheelZoom: boolean;
+  }
+
+  const SafeMapContainer = ({ children, ...props }: SafeMapContainerProps) => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {

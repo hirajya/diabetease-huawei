@@ -461,7 +461,7 @@ export default function Glucount() {
             onClick={() => setShowAddForm(!showAddForm)}
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
           >
-            ➕ Add New Reading
+            Add New Reading
           </button>
         </div>
 

@@ -2,42 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { posts as allPosts } from "./posts";
 
 export default function Blogs() {
-  const posts = [
-    {
-      slug: "managing-diabetes-basics",
-      title: "Managing Diabetes: The Basics",
-      date: "2025-10-20",
-      excerpt:
-        "Practical tips to help you start monitoring your blood glucose, set goals, and establish routines that stick.",
-      content:
-        "This article covers the fundamentals of monitoring blood glucose, setting achievable goals, and building daily routines that make tracking sustainable. We'll cover glucometers, logging, and small habit changes that compound over time.",
-      // use local image for consistent preview
-      image: "/blogs/managing-diabetes-basics.svg",
-    },
-    {
-      slug: "nutrition-for-better-control",
-      title: "Nutrition for Better Control",
-      date: "2025-10-28",
-      excerpt:
-        "Learn how to read food labels, balance carbs, and plan meals to keep blood sugar steady throughout the day.",
-      content:
-        "Nutrition plays a huge role in blood sugar control. This post walks through label-reading, portion strategies, practical meal ideas, and how to balance carbohydrates with protein and fiber.",
-      // use local image for consistent preview
-      image: "/blogs/nutrition-for-better-control.svg",
-    },
-    {
-      slug: "exercise-and-diabetes",
-      title: "Exercise and Diabetes: What to Know",
-      date: "2025-11-02",
-      excerpt: "Simple, safe exercise routines and tips to help you manage glucose and improve overall health.",
-      content:
-        "Regular activity can improve insulin sensitivity and overall wellbeing. This article outlines safe routines, how to check glucose around exercise, and practical tips to stay consistent.",
-      // use local image for consistent preview
-      image: "/blogs/exercise-and-diabetes.svg",
-    },
-  ];
+  // Centralized posts data imported; allow for future filtering/search.
+  const posts = allPosts;
 
   const [openPost, setOpenPost] = useState<(typeof posts)[number] | null>(null);
 
@@ -67,9 +36,23 @@ export default function Blogs() {
               tabIndex={0}
               onKeyDown={(e) => e.key === "Enter" && setOpenPost(post)}
             >
-              <div className="h-48 w-full overflow-hidden">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-              </div>
+              <Link href={`/blogs/${post.slug}`} onClick={(e) => e.stopPropagation()} aria-label={`Read ${post.title}`}>
+                <div className="h-48 w-full overflow-hidden group">
+                  <img
+                    src={post.image || "/placeholder.svg"}
+                    alt={post.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget as HTMLImageElement;
+                      if (!target.dataset.fallback) {
+                        target.dataset.fallback = "true";
+                        target.src = "/placeholder.svg";
+                      }
+                    }}
+                  />
+                </div>
+              </Link>
 
               <div className="p-6">
                 <h2 className="text-2xl font-semibold text-gray-900">
@@ -81,10 +64,21 @@ export default function Blogs() {
 
                 <p className="mt-4 text-gray-700">{post.excerpt}</p>
 
-                <div className="mt-4">
+                <div className="mt-4 flex items-center justify-between">
                   <Link href={`/blogs/${post.slug}`} className="text-sm font-medium text-blue-600 hover:underline" onClick={(e) => e.stopPropagation()}>
                     Read →
                   </Link>
+                  {post.imageCredit && (
+                    <a
+                      href={post.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-[11px] text-gray-500 hover:text-gray-700"
+                    >
+                      Image source
+                    </a>
+                  )}
                 </div>
               </div>
             </article>
@@ -97,9 +91,26 @@ export default function Blogs() {
             <div className="absolute inset-0 bg-black/50" onClick={() => setOpenPost(null)} />
 
             <div className="relative z-10 max-w-3xl w-full mx-4 bg-white rounded-lg overflow-hidden shadow-lg">
-              <div className="h-64 w-full overflow-hidden">
-                <img src={openPost.image} alt={openPost.title} className="w-full h-full object-cover" />
-              </div>
+              <a
+                href={openPost.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-64 w-full overflow-hidden block group"
+              >
+                <img
+                  src={openPost.image || "/placeholder.svg"}
+                  alt={openPost.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    if (!target.dataset.fallback) {
+                      target.dataset.fallback = "true";
+                      target.src = "/placeholder.svg";
+                    }
+                  }}
+                />
+              </a>
 
               <div className="p-6">
                 <div className="flex items-start justify-between">
@@ -118,8 +129,15 @@ export default function Blogs() {
 
                 <div className="mt-4 text-gray-700">{openPost.content || openPost.excerpt}</div>
 
-                <div className="mt-6 text-right">
-                  <Link href={`/blogs/${openPost.slug}`} className="inline-block text-sm font-medium text-blue-600 hover:underline" onClick={() => setOpenPost(null)}>
+                <div className="mt-6 flex items-center justify-between">
+                  {openPost.imageCredit && (
+                    <span className="text-[11px] text-gray-500">{openPost.imageCredit}</span>
+                  )}
+                  <Link
+                    href={`/blogs/${openPost.slug}`}
+                    className="inline-block text-sm font-medium text-blue-600 hover:underline"
+                    onClick={() => setOpenPost(null)}
+                  >
                     Read full post →
                   </Link>
                 </div>
